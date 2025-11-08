@@ -1,0 +1,334 @@
+/* 🌍 Overall Layout */
+.bus-schedule {
+  min-height: 100vh;
+  background: var(--bg-color);
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 🌈 Top Header */
+.schedule-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--nav-bg);
+  color: #fff;
+  padding: 2rem 3rem;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+}
+
+.schedule-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* 🔍 Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.search-input {
+  width: 320px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  background: var(--card-bg);
+  box-shadow: 0 3px 10px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: rgba(150, 150, 150, 0.7);
+}
+
+.search-input:focus {
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+  transform: scale(1.03);
+}
+
+/* 🧭 Main Container */
+.schedule-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* 🎛 Sidebar Filters */
+.filters-sidebar {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 15px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.filters-sidebar h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.filter-group {
+  margin-bottom: 2rem;
+}
+
+.filter-group h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.filter-checkbox:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.filter-checkbox input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+.filter-checkbox span {
+  font-size: 0.95rem;
+}
+
+.clear-filter {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.clear-filter:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+}
+
+/* 📋 Schedule Content */
+.schedule-content {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px var(--shadow);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.schedule-content h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+/* ⚠️ Error Message */
+.error-message {
+  background: rgba(255, 100, 100, 0.15);
+  color: #ff6b6b;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #ff6b6b;
+  font-weight: 500;
+}
+
+/* 🚌 Empty State */
+.no-buses {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* 🧾 Table Styling */
+.schedule-table {
+  overflow-x: auto;
+}
+
+.schedule-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.schedule-table thead {
+  background: var(--nav-bg);
+  color: white;
+}
+
+.schedule-table th {
+  padding: 1.2rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.schedule-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.2s ease;
+}
+
+.schedule-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.schedule-table td {
+  padding: 1.2rem;
+}
+
+/* 🔘 Details Button */
+.details-btn {
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.details-btn:hover {
+  background: #ee5a52;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* ⚙️ Footer */
+.schedule-footer {
+  background: var(--card-bg);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 10px var(--shadow);
+}
+
+.schedule-footer p {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #764ba2;
+}
+
+/* ⏳ Loading State */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  font-size: 1.3rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+  .schedule-container {
+    grid-template-columns: 1fr;
+  }
+  .filters-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .schedule-header {
+    flex-direction: column;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .schedule-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .schedule-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .filters-sidebar,
+  .schedule-content {
+    padding: 1.5rem;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 0.8rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
